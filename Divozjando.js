@@ -1,4 +1,4 @@
-// --- CONFIGURACIÓN INICIAL --------------------------------------------------
+// CONFIGURACIÓN INICIAL 
 let AMP_MIN     = 0.02;
 let AMP_MAX     = 0.05;
 let AMP_TRIGGER = 0.02;
@@ -19,14 +19,14 @@ let origenConjunto;
 
 let gestorAmp, gestorGrave, gestorAgudo;
 
-// ---------------------------------------------------------------------------
+
 function preload() {
   for (let i = 1; i <= 8; i++) {
     imagenes.push(loadImage(`data/imagen${i}.png`));
   }
 }
 
-// ---------------------------------------------------------------------------
+
 function setup() {
   createCanvas(600, 600);
 
@@ -64,7 +64,7 @@ function setup() {
   gestorAgudo = new GestorSenial(0, 255);
 }
 
-// ---------------------------------------------------------------------------
+
 function draw() {
   background('#FFFFFF');
 
@@ -81,7 +81,7 @@ function draw() {
   const graveSuav = gestorGrave.filtrada * 255;
   const agudoSuav = gestorAgudo.filtrada * 255;
 
-  // 🔁 NUEVA CONDICIÓN
+  // NUEVA CONDICIÓN
   const haySonido = ampSuav > AMP_TRIGGER || graveSuav > 30 || agudoSuav > 30;
 
   if (!sonidoActivado && haySonido) sonidoActivado = true;
@@ -107,7 +107,7 @@ function draw() {
   }
 }
 
-/* ===================== CLASES ===================== */
+
 class GestorSenial {
   constructor(min, max) { this.min=min; this.max=max; this.f=0.8; this.filtrada=0;}
   actualizar(v) {
@@ -116,7 +116,7 @@ class GestorSenial {
   }
 }
 
-/* ---------- Cardumen de líneas ---------- */
+
 class CardumenLinea {
   constructor(x, y, n) {
     this.x=x; this.y=y; this.t=0;
@@ -139,7 +139,7 @@ class Linea{
   dibujar(){stroke(this.color);strokeWeight(5);strokeCap(SQUARE);line(this.displayX,this.displayY,this.displayX+this.largo,this.displayY);}
 }
 
-/* ---------- Cruz (modificada) ---------- */
+
 class Cruz {
   constructor(x, y, d, col) {
     this.x = x;
@@ -172,7 +172,7 @@ class Cruz {
   }
 }
 
-/* ---------- Figuras del borde ---------- */
+
 class FigurasBorde{
   constructor(tCirc,tCuad,esp,mar){
     this.tCirc=tCirc; this.r=tCirc/2; this.colCirc=random(colores);
@@ -202,7 +202,7 @@ class FigurasBorde{
   }
 }
 
-/* ---------- Pareja de imágenes ---------- */
+
 class ImagenPareja{
   constructor(imgs){this.imgs=imgs;this.i1=floor(random(imgs.length));do{this.i2=floor(random(imgs.length));}while(this.i2===this.i1);this.h=0;}
   dibujar(amp,aMin,aMax){
@@ -215,7 +215,7 @@ class ImagenPareja{
   }
 }
 
-/* ---------- Formas superiores ---------- */
+
 class FormaSup {
   constructor(offX, offY, w, h, rot, col, offMov) {
     this.offX = offX;
