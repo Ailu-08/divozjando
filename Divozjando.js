@@ -1,3 +1,5 @@
+//Comisión (Lisandro) - Avanzini Ailen--Breit Nancy--Victoria Di Lorenzo
+
 // CONFIGURACIÓN INICIAL 
 let AMP_MIN     = 0.02;
 let AMP_MAX     = 0.05;
